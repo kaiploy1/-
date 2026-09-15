@@ -1,0 +1,95 @@
+name: CuteRanks
+main: CuteRanks\Main
+version: 2.0.1
+api: 5.0.0
+author: YourName
+description: ระบบยศ แชต Rainbow คำสั่งประจำยศ และสัตว์เลี้ยง
+
+depend:
+  - SimpleMoney
+
+commands:
+  rank:
+    description: เปิดหน้าระบบยศ
+    usage: "/rank"
+    permission: cuteranks.command
+
+  rankcmd:
+    description: ดูคำสั่งที่ยศปัจจุบันใช้ได้
+    usage: "/rankcmd"
+    aliases:
+      - rc
+    permission: cuteranks.command
+
+  rankrename:
+    description: เปลี่ยนชื่อยศพิเศษ
+    usage: "/rankrename"
+    aliases:
+      - rn
+    permission: cuteranks.command
+
+  pets:
+    description: เปิดหน้าระบบสัตว์เลี้ยง
+    usage: "/pets"
+    aliases:
+      - pet
+    permission: cuteranks.command
+
+  fly:
+    description: เปิดหรือปิดการบิน
+    usage: "/fly"
+    permission: cuteranks.command
+
+  tp:
+    description: วาร์ปไปหาผู้เล่น
+    usage: "/tp <ผู้เล่น>"
+    permission: cuteranks.command
+
+  fix:
+    description: ซ่อมไอเทมที่ถือ
+    usage: "/fix"
+    permission: cuteranks.command
+
+  heal:
+    description: ฟื้นเลือดและอาหาร
+    usage: "/heal"
+    permission: cuteranks.command
+
+  enchant:
+    description: เพิ่มมนตร์ให้ไอเทม
+    usage: "/enchant <ชื่อมนตร์> [เลเวล]"
+    permission: cuteranks.command
+
+  nick:
+    description: เปลี่ยนชื่อเล่น
+    usage: "/nick <ชื่อ|off>"
+    aliases:
+      - nickname
+    permission: cuteranks.command
+
+  size:
+    description: เปลี่ยนขนาดตัวละคร
+    usage: "/size <ขนาด>"
+    permission: cuteranks.command
+
+  time:
+    description: เปลี่ยนเวลาในโลก
+    usage: "/time <day|night|sunrise|sunset|ตัวเลข>"
+    permission: cuteranks.command
+
+  kick:
+    description: นำผู้เล่นออกจากเซิร์ฟเวอร์
+    usage: "/kick <ผู้เล่น> [เหตุผล]"
+    permission: cuteranks.command
+
+  readmin:
+    description: เรียกแอดมินออนไลน์
+    usage: "/readmin [ข้อความ]"
+    permission: cuteranks.command
+
+permissions:
+  cuteranks.command:
+    default: true
+
+  cuteranks.admin:
+    default: op

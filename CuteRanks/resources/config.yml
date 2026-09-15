@@ -1,0 +1,455 @@
+settings:
+  prefix: "§l§dCute§bRanks §r§f♡ "
+  default-rank: "noob"
+  chat-separator: " §d♡ §f"
+  rainbow-update-ticks: 10
+  rank-rename-days: 30
+  maximum-nickname-length: 16
+  maximum-rank-name-length: 20
+  minimum-size: 0.3
+  maximum-size: 3.0
+  kick-limit: 2
+  kick-period-days: 3
+
+rank-order:
+  - noob
+  - cutie
+  - brave
+  - shiny
+  - mystic
+  - noble
+  - eternal
+  - celestia
+  - special
+  - staff
+  - builder
+  - admin
+  - co-owner
+  - owner
+
+color-styles:
+  white:
+    name: "§fขาวไข่มุก"
+    code: "§f"
+
+  pink:
+    name: "§dชมพูหวาน"
+    code: "§d"
+
+  aqua:
+    name: "§bฟ้าสดใส"
+    code: "§b"
+
+  yellow:
+    name: "§eเหลืองประกาย"
+    code: "§e"
+
+  green:
+    name: "§aเขียวมิ้นต์"
+    code: "§a"
+
+  red:
+    name: "§cแดงเชอร์รี"
+    code: "§c"
+
+  purple:
+    name: "§5ม่วงลึกลับ"
+    code: "§5"
+
+  blue:
+    name: "§9น้ำเงินดวงดาว"
+    code: "§9"
+
+  gold:
+    name: "§6ทองอร่าม"
+    code: "§6"
+
+  rainbow:
+    name: "§cR§6a§ei§an§bb§9o§dw §fเคลื่อนไหว"
+    code: "rainbow"
+
+command-descriptions:
+  fly: "เปิดหรือปิดการบิน"
+  tp: "วาร์ปไปหาผู้เล่น"
+  fix: "ซ่อมไอเทมที่ถืออยู่"
+  heal: "เติมเลือดและความหิว"
+  enchant: "เพิ่มมนตร์ให้ไอเทม"
+  nick: "เปลี่ยนชื่อเล่น"
+  nickname: "เปลี่ยนชื่อเล่น"
+  size: "เปลี่ยนขนาดตัวละคร"
+  time: "เปลี่ยนเวลาในโลก"
+  pets: "เปิดหน้าระบบสัตว์เลี้ยง"
+  kick: "นำผู้เล่นออกจากเซิร์ฟเวอร์"
+  readmin: "แจ้งขอความช่วยเหลือจากแอดมิน"
+  rankrename: "เปลี่ยนชื่อยศพิเศษ"
+  rn: "เปลี่ยนชื่อยศพิเศษ"
+
+ranks:
+  noob:
+    display-name: "Noob"
+    prefix: "§f[§aNoob§f]"
+    administrator: false
+    colors:
+      - white
+      - green
+    commands: []
+    permissions: []
+
+  cutie:
+    display-name: "Cutie"
+    prefix: "§d[§fCutie§d]"
+    administrator: false
+    colors:
+      - white
+      - pink
+      - aqua
+    commands:
+      - fly
+      - tp
+      - fix
+    permissions: []
+
+  brave:
+    display-name: "Brave"
+    prefix: "§6[§eBrave§6]"
+    administrator: false
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - gold
+    commands:
+      - fly
+      - tp
+      - fix
+      - heal
+    permissions: []
+
+  shiny:
+    display-name: "Shiny"
+    prefix: "§e[§fShiny§e]"
+    administrator: false
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - green
+      - gold
+    commands:
+      - fly
+      - tp
+      - fix
+      - heal
+      - enchant
+    permissions: []
+
+  mystic:
+    display-name: "Mystic"
+    prefix: "§5[§dMystic§5]"
+    administrator: false
+    colors:
+      - white
+      - pink
+      - aqua
+      - purple
+      - blue
+    commands:
+      - fly
+      - tp
+      - fix
+      - heal
+      - enchant
+      - nick
+      - nickname
+    permissions: []
+
+  noble:
+    display-name: "Noble"
+    prefix: "§6[§fNoble§6]"
+    administrator: false
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - green
+      - purple
+      - blue
+      - gold
+    commands:
+      - fly
+      - tp
+      - fix
+      - heal
+      - enchant
+      - nick
+      - nickname
+      - size
+      - time
+    permissions: []
+
+  eternal:
+    display-name: "Eternal"
+    prefix: "§b[§fEternal§b]"
+    administrator: false
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - green
+      - red
+      - purple
+      - blue
+      - gold
+    commands:
+      - fly
+      - tp
+      - fix
+      - heal
+      - enchant
+      - nick
+      - nickname
+      - size
+      - time
+      - pets
+      - kick
+    permissions: []
+
+  celestia:
+    display-name: "Celestia"
+    prefix: "§d[§bCelestia§d]"
+    administrator: false
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - green
+      - red
+      - purple
+      - blue
+      - gold
+    commands:
+      - fly
+      - tp
+      - fix
+      - heal
+      - enchant
+      - nick
+      - nickname
+      - size
+      - time
+      - pets
+      - kick
+      - readmin
+    permissions: []
+
+  special:
+    display-name: "Special"
+    prefix: "§d[§fSpecial§d]"
+    administrator: false
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - green
+      - red
+      - purple
+      - blue
+      - gold
+    commands:
+      - fly
+      - tp
+      - fix
+      - heal
+      - enchant
+      - nick
+      - nickname
+      - size
+      - time
+      - pets
+      - kick
+      - readmin
+      - rankrename
+      - rn
+    permissions: []
+
+  staff:
+    display-name: "Neko"
+    prefix: "§a[§fNeko§a]"
+    administrator: true
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - green
+      - red
+      - purple
+      - blue
+      - gold
+      - rainbow
+    commands:
+      - "*"
+    permissions: []
+
+  builder:
+    display-name: "Creator"
+    prefix: "§e[§fCreator§e]"
+    administrator: true
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - green
+      - red
+      - purple
+      - blue
+      - gold
+      - rainbow
+    commands:
+      - "*"
+    permissions: []
+
+  admin:
+    display-name: "Nova"
+    prefix: "§c[§fNova§c]"
+    administrator: true
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - green
+      - red
+      - purple
+      - blue
+      - gold
+      - rainbow
+    commands:
+      - "*"
+    permissions: []
+
+  co-owner:
+    display-name: "Aster"
+    prefix: "§5[§dAster§5]"
+    administrator: true
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - green
+      - red
+      - purple
+      - blue
+      - gold
+      - rainbow
+    commands:
+      - "*"
+    permissions: []
+
+  owner:
+    display-name: "Lumina"
+    prefix: "§d[§fLumina§d]"
+    administrator: true
+    colors:
+      - white
+      - pink
+      - aqua
+      - yellow
+      - green
+      - red
+      - purple
+      - blue
+      - gold
+      - rainbow
+    commands:
+      - "*"
+    permissions: []
+
+pets:
+  enabled: true
+  price: 50000
+  maximum-owned: 20
+  follow-update-ticks: 10
+  ability-update-ticks: 80
+
+  rarities:
+    poor:
+      display-name: "§fกาก"
+      color: "§f"
+      weight: 45
+      amplifier: 0
+      scale-bonus: 0.00
+
+    common:
+      display-name: "§aธรรมดา"
+      color: "§a"
+      weight: 28
+      amplifier: 0
+      scale-bonus: 0.03
+
+    rare:
+      display-name: "§bหายาก"
+      color: "§b"
+      weight: 15
+      amplifier: 1
+      scale-bonus: 0.06
+
+    epic:
+      display-name: "§5มหากาพย์"
+      color: "§5"
+      weight: 7
+      amplifier: 1
+      scale-bonus: 0.10
+
+    legendary:
+      display-name: "§6ตำนาน"
+      color: "§6"
+      weight: 4
+      amplifier: 2
+      scale-bonus: 0.15
+
+    mythic:
+      display-name: "§dระดับเทพ"
+      color: "§d"
+      weight: 1
+      amplifier: 3
+      scale-bonus: 0.20
+
+  types:
+    wolf:
+      display-name: "§bหมาป่าหิมะ"
+      ability: strength
+      ability-name: "§cพลังโจมตี"
+      scale: 0.75
+
+    rabbit:
+      display-name: "§dกระต่ายนุ่มนิ่ม"
+      ability: jump
+      ability-name: "§aเพิ่มพลังกระโดด"
+      scale: 0.70
+
+    fox:
+      display-name: "§6จิ้งจอกประกาย"
+      ability: speed
+      ability-name: "§bเพิ่มความเร็ว"
+      scale: 0.70
+
+    cat:
+      display-name: "§eแมวดวงดาว"
+      ability: night_vision
+      ability-name: "§eมองเห็นในความมืด"
+      scale: 0.70
+
+    bee:
+      display-name: "§eผึ้งจิ๋ว"
+      ability: regeneration
+      ability-name: "§dฟื้นฟูพลังชีวิต"
+      scale: 0.65
