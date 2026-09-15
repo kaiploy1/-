@@ -1,0 +1,67 @@
+name: SimpleMoney
+main: MyServer\SimpleMoney\Main
+version: 3.0.0
+api: 5.0.0
+author: MyServer
+
+commands:
+  money:
+    description: ดูจำนวนเงิน
+    usage: "/money [player]"
+    aliases: [bal, balance]
+    permission: simplemoney.money
+  pay:
+    description: โอนเงินให้ผู้เล่น
+    usage: "/pay <player> <amount>"
+    permission: simplemoney.pay
+  bank:
+    description: เปิดเมนูธนาคาร
+    usage: "/bank"
+    permission: simplemoney.bank
+  topmoney:
+    description: ดูอันดับเงิน
+    usage: "/topmoney"
+    aliases: [moneytop, baltop]
+    permission: simplemoney.topmoney
+  menu:
+    description: เปิดเมนูระบบเงิน
+    usage: "/menu"
+    aliases: [moneyui]
+    permission: simplemoney.menu
+  moneyadmin:
+    description: จัดการเงินผู้เล่น
+    usage: "/moneyadmin <set|add|take> <player> <amount>"
+    aliases: [madmin]
+    permission: simplemoney.admin
+  shop:
+    description: เปิดร้านค้า
+    usage: "/shop"
+    permission: simplemoney.shop
+  shopadmin:
+    description: จัดการสินค้าในร้าน
+    usage: "/shopadmin"
+    aliases: [sadmin]
+    permission: simplemoney.shopadmin
+
+permissions:
+  simplemoney.money:
+    default: true
+  simplemoney.money.others:
+    default: op
+  simplemoney.pay:
+    default: true
+  simplemoney.shop:
+    default: true
+  simplemoney.shopadmin:
+    default: op
+  simplemoney.admin:
+    default: op
+  simplemoney.topmoney:
+    description: อนุญาตให้ดูอันดับเงิน
+    default: true
+  simplemoney.menu:
+    description: อนุญาตให้เปิดเมนูเงิน
+    default: true
+  simplemoney.balance.others:
+    description: อนุญาตให้ดูยอดเงินของผู้เล่นอื่น
+    default: op

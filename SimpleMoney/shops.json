@@ -1,0 +1,46 @@
+// ตัวอย่างไฟล์ shops.json
+// อยู่ที่ plugins/SimpleMoney/shops.json
+// หากยังไม่มี ระบบ Main.php จะสร้างให้อัตโนมัติ
+
+[
+  {
+    "id": "stone",
+    "name": "§7Stone",
+    "item": "minecraft:stone",
+    "quantity": 64,
+    "buy": 50.0,
+    "sell": 20.0
+  },
+  {
+    "id": "diamond",
+    "name": "§bDiamond",
+    "item": "minecraft:diamond",
+    "quantity": 1,
+    "buy": 500.0,
+    "sell": 250.0
+  },
+  {
+    "id": "gold_ingot",
+    "name": "§6Gold Ingot",
+    "item": "minecraft:gold_ingot",
+    "quantity": 1,
+    "buy": 150.0,
+    "sell": 75.0
+  },
+  {
+    "id": "bread",
+    "name": "§eBread",
+    "item": "minecraft:bread",
+    "quantity": 16,
+    "buy": 80.0,
+    "sell": 35.0
+  },
+  {
+    "id": "iron_ingot",
+    "name": "§fIron Ingot",
+    "item": "minecraft:iron_ingot",
+    "quantity": 1,
+    "buy": 100.0,
+    "sell": 45.0
+  }
+]

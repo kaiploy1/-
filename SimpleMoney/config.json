@@ -1,0 +1,42 @@
+{
+  "starting-balance": 1500.0,
+  "autosave-ticks": 600,
+  "interest-rate-percent": 1.0,
+  "interest-interval-ticks": 72000,
+  "top-limit": 10
+}
+
+
+{
+
+  "auto-income": {
+
+    "enabled": true,
+
+    "amount": 20,
+
+    "interval-minutes": 20,
+
+    "message": "§l§a💰 §fรายได้อัตโนมัติ §a+{amount}"
+
+  {
+
+  "scoreboard": {
+    "enabled": true,
+    "update-ticks": 40,
+    "lines": [
+      "§dชื่อ : §f{player}",
+      "§cเงิ§6น : §e{money}"
+    ]
+
+  }
+  }
+}
+  }
+
+  "auto-income": {
+    "enabled": true,
+    "amount": 20.0,
+    "interval-minutes": 20,
+    "only-online": true,
+}

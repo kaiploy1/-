@@ -1,0 +1,73 @@
+name: SimpleMoney
+main: MyServer\SimpleMoney\Main
+version: 4.0.0
+api: 5.0.0
+author: YourName
+description: Cute Economy, Bank, Shop, Scoreboard and Auto Income
+
+commands:
+  menu:
+    description: เปิดเมนูการเงิน
+    usage: "/menu"
+    permission: simplemoney.menu
+  money:
+    description: ดูเงินของคุณ
+    usage: "/money [player]"
+    aliases: [bal, balance, เงิน]
+    permission: simplemoney.money
+  pay:
+    description: โอนเงินให้ผู้เล่น
+    usage: "/pay <player> <amount>"
+    permission: simplemoney.pay
+  bank:
+    description: เปิดธนาคาร
+    usage: "/bank"
+    permission: simplemoney.bank
+  topmoney:
+    description: ดูอันดับเงิน
+    usage: "/topmoney"
+    aliases: [topbal, topbank]
+    permission: simplemoney.topmoney
+  moneyadmin:
+    description: จัดการเงินผู้เล่น
+    usage: "/moneyadmin <set|add|take> <player> <amount>"
+    aliases: [madmin]
+    permission: simplemoney.admin
+  shop:
+    description: เปิดร้านค้า
+    usage: "/shop"
+    permission: simplemoney.shop
+  shopadmin:
+    description: จัดการร้านค้า
+    usage: "/shopadmin"
+    aliases: [sadmin]
+    permission: simplemoney.shopadmin
+  scoreboard:
+    description: เปิดหรือปิดกระดานแสดงเงิน
+    usage: "/scoreboard"
+    aliases: [sb, sd]
+    permission: simplemoney.scoreboard
+
+permissions:
+  simplemoney.menu:
+    default: true
+  simplemoney.money:
+    default: true
+  simplemoney.money.others:
+    default: op
+  simplemoney.balance.others:
+    default: op
+  simplemoney.pay:
+    default: true
+  simplemoney.bank:
+    default: true
+  simplemoney.topmoney:
+    default: true
+  simplemoney.shop:
+    default: true
+  simplemoney.scoreboard:
+    default: true
+  simplemoney.shopadmin:
+    default: op
+  simplemoney.admin:
+    default: op
