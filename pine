@@ -1,0 +1,243 @@
+//@version=6
+strategy("XAUUSD M1 BUY SELL System", overlay=true,
+     initial_capital=10000,
+     pyramiding=0,
+     commission_type=strategy.commission.percent,
+     commission_value=0.01,
+     calc_on_every_tick=true,
+     process_orders_on_close=true)
+
+// =====================================================
+// INPUT
+// =====================================================
+
+emaFastLen = input.int(20, "EMA Fast", minval=1)
+emaSlowLen = input.int(50, "EMA Slow", minval=1)
+
+rsiLen = input.int(14, "RSI Length", minval=1)
+rsiBuyLevel = input.float(50, "RSI Buy Level")
+rsiSellLevel = input.float(50, "RSI Sell Level")
+
+macdFast = input.int(12, "MACD Fast")
+macdSlow = input.int(26, "MACD Slow")
+macdSignalLen = input.int(9, "MACD Signal")
+
+bbLen = input.int(20, "BB Length")
+bbDev = input.float(2.0, "BB Deviation")
+
+atrLen = input.int(14, "ATR Length")
+atrSL = input.float(1.2, "SL ATR Multiplier")
+atrTP = input.float(2.0, "TP ATR Multiplier")
+
+// =====================================================
+// INDICATORS
+// =====================================================
+
+// EMA
+ema20 = ta.ema(close, emaFastLen)
+ema50 = ta.ema(close, emaSlowLen)
+
+// RSI
+rsi = ta.rsi(close, rsiLen)
+
+// MACD
+[macdLine, signalLine, macdHist] = ta.macd(
+     close,
+     macdFast,
+     macdSlow,
+     macdSignalLen
+)
+
+// Bollinger Bands
+bbBasis = ta.sma(close, bbLen)
+bbUpper = bbBasis + bbDev * ta.stdev(close, bbLen)
+bbLower = bbBasis - bbDev * ta.stdev(close, bbLen)
+
+// ATR
+atr = ta.atr(atrLen)
+
+// =====================================================
+// TREND
+// =====================================================
+
+bullTrend = ema20 > ema50
+bearTrend = ema20 < ema50
+
+// =====================================================
+// MOMENTUM
+// =====================================================
+
+bullMACD = macdLine > signalLine and macdHist > 0
+bearMACD = macdLine < signalLine and macdHist < 0
+
+bullRSI = rsi > rsiBuyLevel
+bearRSI = rsi < rsiSellLevel
+
+// =====================================================
+// PRICE ACTION CONFIRMATION
+// =====================================================
+
+bullCandle = close > open
+bearCandle = close < open
+
+// =====================================================
+// BUY / SELL CONDITIONS
+// =====================================================
+
+// BUY
+buySignal =
+     bullTrend and
+     bullMACD and
+     bullRSI and
+     bullCandle and
+     close > ema20
+
+// SELL
+sellSignal =
+     bearTrend and
+     bearMACD and
+     bearRSI and
+     bearCandle and
+     close < ema20
+
+// =====================================================
+// AVOID DUPLICATE ENTRY
+// =====================================================
+
+newBuy = buySignal and strategy.position_size <= 0
+newSell = sellSignal and strategy.position_size >= 0
+
+// =====================================================
+// ENTRY
+// =====================================================
+
+if newBuy
+    strategy.entry("BUY", strategy.long)
+
+if newSell
+    strategy.entry("SELL", strategy.short)
+
+// =====================================================
+// STOP LOSS / TAKE PROFIT
+// =====================================================
+
+longSL = strategy.position_avg_price - atr * atrSL
+longTP = strategy.position_avg_price + atr * atrTP
+
+shortSL = strategy.position_avg_price + atr * atrSL
+shortTP = strategy.position_avg_price - atr * atrTP
+
+if strategy.position_size > 0
+    strategy.exit(
+         "BUY EXIT",
+         from_entry="BUY",
+         stop=longSL,
+         limit=longTP
+    )
+
+if strategy.position_size < 0
+    strategy.exit(
+         "SELL EXIT",
+         from_entry="SELL",
+         stop=shortSL,
+         limit=shortTP
+    )
+
+// =====================================================
+// PLOTS
+// =====================================================
+
+// EMA
+plot(ema20, title="EMA 20", color=color.green, linewidth=2)
+plot(ema50, title="EMA 50", color=color.red, linewidth=2)
+
+// Bollinger
+plot(bbBasis, title="BB Middle", color=color.yellow)
+plot(bbUpper, title="BB Upper", color=color.red)
+plot(bbLower, title="BB Lower", color=color.green)
+
+// =====================================================
+// BUY / SELL LABELS
+// =====================================================
+
+plotshape(
+     newBuy,
+     title="BUY Signal",
+     style=shape.labelup,
+     location=location.belowbar,
+     color=color.green,
+     textcolor=color.white,
+     text="BUY"
+)
+
+plotshape(
+     newSell,
+     title="SELL Signal",
+     style=shape.labeldown,
+     location=location.abovebar,
+     color=color.red,
+     textcolor=color.white,
+     text="SELL"
+)
+
+// =====================================================
+// SL / TP LINES
+// =====================================================
+
+plot(
+     strategy.position_size > 0 ? longSL : na,
+     title="BUY SL",
+     color=color.red,
+     style=plot.style_linebr,
+     linewidth=2
+)
+
+plot(
+     strategy.position_size > 0 ? longTP : na,
+     title="BUY TP",
+     color=color.green,
+     style=plot.style_linebr,
+     linewidth=2
+)
+
+plot(
+     strategy.position_size < 0 ? shortSL : na,
+     title="SELL SL",
+     color=color.red,
+     style=plot.style_linebr,
+     linewidth=2
+)
+
+plot(
+     strategy.position_size < 0 ? shortTP : na,
+     title="SELL TP",
+     color=color.green,
+     style=plot.style_linebr,
+     linewidth=2
+)
+
+// =====================================================
+// BACKGROUND TREND
+// =====================================================
+
+bgcolor(
+     bullTrend ? color.new(color.green, 92) :
+     bearTrend ? color.new(color.red, 92) :
+     na
+)
+
+// =====================================================
+// ALERTS
+// =====================================================
+
+alertcondition(
+     newBuy,
+     title="XAUUSD BUY",
+     message="XAUUSD BUY signal"
+)
+
+alertcondition(
+     newSell,
+     title="XAUUSD SELL",
+     message="XAUUSD SELL signal"
+)
